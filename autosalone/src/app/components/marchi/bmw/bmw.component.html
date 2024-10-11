@@ -14,14 +14,17 @@
     <div
       *ngFor="let car of bmwArr"
       [ngClass]="{
-        'shadow-red-400': !car.available,
-        'shadow-green-300': car.available
+        'shadow-red-400 bg-red-300': !car.available,
+        'shadow-sky-500  hover:bg-slate-100': car.available
       }"
-      class="max-w-sm md:max-w-md rounded shadow-lg bg-white m-8 overflow-hidden px-4 hover:bg-slate-100 transition-colors"
+      class="max-w-sm md:max-w-md rounded shadow-lg bg-white m-8 overflow-hidden px-4 transition-colors"
     >
       <div class="relative">
         <img
-          class="w-full object-cover transition-transform transform hover:scale-110"
+          [ngClass]="{
+            'transition-transform transform hover:scale-110': car.available
+          }"
+          class="w-full object-cover"
           [src]="car.modelImage"
           alt="img"
         />
@@ -38,7 +41,10 @@
           <p class="font-semibold">yr. {{ car.year }}</p>
         </div>
         <p
-          class="bg-slate-300 text-center hover:bg-yellow-300 transition-all py-2 text-black font-bold italic rounded-sm"
+          [ngClass]="{
+            'hover:bg-black hover:text-white transition-all': car.available
+          }"
+          class="bg-slate-300 text-center py-2 text-black font-bold italic rounded-sm"
         >
           {{ car.price | currency : "EUR" : "symbol" : "1.0-0" }}
         </p>
