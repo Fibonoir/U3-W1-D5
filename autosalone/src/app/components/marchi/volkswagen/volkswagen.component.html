@@ -13,9 +13,9 @@
       *ngFor="let car of volkArr"
       [ngClass]="{
         'shadow-red-400 bg-red-300': !car.available,
-        'shadow-sky-500  hover:bg-slate-100': car.available
+        'shadow-sky-500 bg-white hover:bg-slate-100': car.available
       }"
-      class="max-w-sm md:max-w-md rounded shadow-lg bg-white m-8 overflow-hidden px-4 transition-colors"
+      class="max-w-sm md:max-w-md rounded shadow-lg m-8 overflow-hidden px-4 transition-colors"
     >
       <div class="relative">
         <img
