@@ -1,0 +1,25 @@
+<div class="text-white w-10/12 mx-auto my-8 rounded-sm px-8 py-6">
+  <h1 class="text-5xl font-bold mb-3">Discover <br />Your Dream Ride</h1>
+  <p class="text-xl">
+    We're not just an auto dealership; <br />
+    we're a team of car enthusiasts dedicated to helping you find a vehicle that
+    fits your lifestyle, personality, and budget.
+  </p>
+</div>
+<div class="flex justify-center mb-20">
+  <div
+    *ngFor="let car of shuffledArr.slice(0, 2)"
+    class="max-w-sm rounded shadow-lg bg-white mx-4 overflow-hidden"
+  >
+    <a [routerLink]="['/', car.brand.toLowerCase()]">
+      <img
+        class="w-full object-cover transition-transform transform hover:scale-110"
+        [src]="car.modelImage"
+        alt="img"
+      />
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">{{ car.model }}</div>
+      </div>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="flex bg-black text-white font-semibold font-serif items-start">
+  <a [routerLink]="['']">
+    <img
+      src="https://static.vecteezy.com/system/resources/previews/008/169/897/non_2x/modern-high-tech-future-car-technology-illustration-logo-design-free-vector.jpg"
+      alt="logo"
+      width="300"
+    />
+  </a>
+  <div class="flex flex-col items-end w-full my-auto">
+    <button (click)="isMenuOpen = !isMenuOpen" class="md:hidden p-2 me-4">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </button>
+    <div
+      [ngClass]="{ hidden: !isMenuOpen, flex: isMenuOpen }"
+      class="px-2 font-mono md:bg-transparent flex md:flex flex-col items-end md:flex-row justify-between mb-4 md:mb-0"
+    >
+      <a
+        class="text-lg me-4 md:mx-2 pe-4 md:px-0 py-2 hover:bg-slate-200 hover:text-slate-900 hover:transition-all rounded-sm w-32 text-end md:text-center"
+        [routerLink]="['/bmw']"
+        >BMW</a
+      >
+      <a
+        class="text-lg me-4 md:mx-2 pe-4 md:px-0 py-2 hover:bg-slate-200 hover:text-slate-900 hover:transition-all rounded-sm w-32 text-end md:text-center"
+        [routerLink]="['/volkswagen']"
+        >Volkswagen</a
+      >
+      <a
+        class="text-lg me-4 md:mx-2 pe-4 md:px-0 py-2 hover:bg-slate-200 hover:text-slate-900 hover:transition-all rounded-sm w-32 text-end md:text-center"
+        [routerLink]="['/audi']"
+        >Audi</a
+      >
+    </div>
+  </div>
+</div>

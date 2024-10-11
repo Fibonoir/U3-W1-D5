@@ -1,0 +1,48 @@
+<div class="flex flex-col my-20">
+  <div class="mx-20 bg-white bg-opacity-75 rounded-md p-4 text-center mb-12">
+    <img
+      src="{{ bmwArr[0].brandLogo }}"
+      alt="brandLogo"
+      width="100"
+      class="mx-auto"
+    />
+    <h1 class="text-5xl text-slate-900 font-bold mb-3 font-custom">
+      Our Selection
+    </h1>
+  </div>
+  <div class="flex justify-center flex-wrap">
+    <div
+      *ngFor="let car of bmwArr"
+      [ngClass]="{
+        'shadow-red-400': !car.available,
+        'shadow-green-300': car.available
+      }"
+      class="max-w-sm md:max-w-md rounded shadow-lg bg-white m-8 overflow-hidden px-4 hover:bg-slate-100 transition-colors"
+    >
+      <div class="relative">
+        <img
+          class="w-full object-cover transition-transform transform hover:scale-110"
+          [src]="car.modelImage"
+          alt="img"
+        />
+        <p
+          class="absolute right-0 top-0 font-bold text-red-600 mt-4"
+          *ngIf="!car.available"
+        >
+          UNAVAILABLE
+        </p>
+      </div>
+      <div class="px-6 py-4 border-t-2">
+        <div class="flex justify-between px-2">
+          <p class="font-bold text-xl mb-2">{{ car.model }}</p>
+          <p class="font-semibold">yr. {{ car.year }}</p>
+        </div>
+        <p
+          class="bg-slate-300 text-center hover:bg-yellow-300 transition-all py-2 text-black font-bold italic rounded-sm"
+        >
+          {{ car.price | currency : "EUR" : "symbol" : "1.0-0" }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
